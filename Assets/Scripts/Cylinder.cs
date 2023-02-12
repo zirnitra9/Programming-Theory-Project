@@ -6,13 +6,13 @@ public class Cylinder : Ball
 {
     public override Vector3 GetBackwardDir()
     {
-        Debug.Log("UP");
+        //Debug.Log("UP");
         return Vector3.up;
     }
 
     public override Vector3 GetForwardDir()
     {
-        Debug.Log("down");
+        //Debug.Log("down");
         return Vector3.down;
     }
 
@@ -24,6 +24,11 @@ public class Cylinder : Ball
     public override void SpecialBehaviour()
     {
         tagToBounce = "Floor";
-        objectsRb.AddTorque(0, 0, 5, ForceMode.Impulse);
+        objectsRb.AddTorque(0, 0, GetRandomZTorque(8f), ForceMode.Impulse);
+    }
+
+    private float GetRandomZTorque(float flo)
+    {
+        return Random.Range(-flo, flo);
     }
 }

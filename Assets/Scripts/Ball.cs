@@ -54,7 +54,6 @@ public class Ball : MonoBehaviour
     private void InitializeObject()
     {
         objectsRb = gameObject.GetComponent<Rigidbody>();
-        //tagToBounce = "Wall";
     }
 
     private void OnCollisionEnter(Collision collision)
