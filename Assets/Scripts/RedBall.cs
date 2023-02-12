@@ -18,4 +18,5 @@ public class RedBall : Ball
     {
         return 5f;
     }
+
 }
