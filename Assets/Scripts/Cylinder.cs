@@ -2,31 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// INHERITANCE
 public class Cylinder : Ball
 {
+    // POLYMORPHISM
     public override Vector3 GetBackwardDir()
     {
-        //Debug.Log("UP");
         return Vector3.up;
     }
 
+    // POLYMORPHISM
     public override Vector3 GetForwardDir()
     {
-        //Debug.Log("down");
         return Vector3.down;
     }
 
-    public override float GetSpeed()
-    {
-        return 0.2f;
-    }
-
+    // POLYMORPHISM
     public override void SpecialBehaviour()
     {
         tagToBounce = "Floor";
         objectsRb.AddTorque(0, 0, GetRandomZTorque(8f), ForceMode.Impulse);
+        speed = 0.2f;
     }
 
+    // POLYMORPHISM
+    // ABSTRACTION
     private float GetRandomZTorque(float flo)
     {
         return Random.Range(-flo, flo);

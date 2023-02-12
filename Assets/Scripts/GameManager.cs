@@ -15,12 +15,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject redBallPrefab;
     [SerializeField] private GameObject cylinderPrefab;
 
-    // Start is called before the first frame update
     void Start()
     {
         SpawnObjects();
     }
 
+    // ABSTRACTION
     void SpawnObjects()
     {
         SpawnBalls(3);

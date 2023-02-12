@@ -9,16 +9,22 @@ public class Ball : MonoBehaviour
     [SerializeField]private bool isGoingForward = true;
     [SerializeField]private bool hasChangedDirectionRecently = false;
 
+    // ENCAPSULATION
     protected string tagToBounce = "Wall";
     public string TagToBounce { get => tagToBounce; set { } }
 
-    // Start is called before the first frame update
+    // ENCAPSULATION
+    protected float speed = 4f;
+    public float Speed { get => speed; set { } }
+
+    // ABSTRACTION
     void Start()
     {
         InitializeObject();
         SpecialBehaviour();
     }
 
+    // ABSTRACTION
     void Update()
     {
         MoveItself();
@@ -28,11 +34,11 @@ public class Ball : MonoBehaviour
     {
         if (isGoingForward)
         {
-            objectsRb.AddForce(GetSpeed() * Time.deltaTime * GetForwardDir(), ForceMode.Impulse);
+            objectsRb.AddForce(speed * Time.deltaTime * GetForwardDir(), ForceMode.Impulse);
         }
         else
         {
-            objectsRb.AddForce(GetSpeed() * Time.deltaTime * GetBackwardDir(), ForceMode.Impulse);
+            objectsRb.AddForce(speed * Time.deltaTime * GetBackwardDir(), ForceMode.Impulse);
         }
     }
 
@@ -46,10 +52,6 @@ public class Ball : MonoBehaviour
         return Vector3.left;
     }
 
-    public virtual float GetSpeed()
-    {
-        return 4f;
-    }
 
     private void InitializeObject()
     {
